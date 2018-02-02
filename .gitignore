@@ -1,0 +1,13 @@
+*~
+*.o
+*.swp
+*.bak
+*.pyc
+*.ipynb
+*.gif
+untitled
+#*
+pic/
+__*__/
+.ipynb*/
+!hydrangea.jpg
