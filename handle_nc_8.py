@@ -43,6 +43,8 @@ def main():
     ncfile = './data/wspd.mon.mean.nc'
     # if not exist
     if not (os.path.isfile(ncfile)):
+        # These data were collected and distributed by Research Institute for Sustainable Humanosphere,
+        # Kyoto University (http://database.rish.kyoto-u.ac.jp/index-e.html).
         url='http://database.rish.kyoto-u.ac.jp/arch/ncep/data/ncep.reanalysis.derived/surface/wspd.mon.mean.nc'
         getncfile(url, ncfile)
     ncdata = netCDF4.Dataset(ncfile, 'r', format='NETCDF4')
