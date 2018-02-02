@@ -32,6 +32,5 @@ MIT
 
 # Author
 Takuya Miyashita   
-written by Takuya Miyashita   
 Doctoral student, Kyoto University, 2018   
 ([personal web site](http://hydrocoast.jp)) 
