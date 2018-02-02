@@ -15,11 +15,16 @@ This repository follows [this page](http://hydrocoast.jp/index.php?Python)
 - NetCDF4
 
 # Usage
-- Install the required libraries
+- Install the required libraries by
+```bash
+git clone https://github.com/hydrocoast/python3_training
+```
 - Clone this repositories
-- Excecute the python scripts such as:
+- Excecute the python scripts
 ```bash
 python peakssurf_1.py
+python randhist_2.py
+...
 ```
 
 # License
