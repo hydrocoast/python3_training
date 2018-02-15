@@ -22,8 +22,8 @@ git clone https://github.com/hydrocoast/python3_training
 ```
 - Excecute the python scripts
 ```bash
-python peakssurf_1.py
-python randhist_2.py
+python Q1_peaks_surf.py
+python Q2_rand_hist.py
 ...
 ```
 
