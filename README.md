@@ -16,7 +16,7 @@ This repository follows [this page](http://hydrocoast.jp/index.php?Python)
 
 # Usage
 - Install the required libraries
-- Clone this repositories
+- Clone this repository
 ```bash
 git clone https://github.com/hydrocoast/python3_training
 ```
