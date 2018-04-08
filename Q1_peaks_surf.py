@@ -1,55 +1,70 @@
-import numpy as np
+"""
+Question 1
+"""
 
-def peaks(N=49):
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# import seaborn as sns
+
+
+def generate_demo_data(n=49):
     """ 
-    generate DEMO data
+    input
+    -----------------
+    n : int
+        meshsize
     """
-    x = np.linspace(-3., 3., N)
-    y = np.linspace(-3., 3., N)
-    X, Y = np.meshgrid(x, y)
-    Z = 3.*(1.-X)**2.*np.exp(-(X**2.)-(Y+1.)**2.) \
-       -10.*(X/5.-X**3.-Y**5.)*np.exp(-X**2.-Y**2.) \
-       -1./3.*np.exp(-(X+1.)**2.-Y**2.)
-    return X, Y, Z
+    x = np.linspace(-3., 3., n)
+    y = np.linspace(-3., 3., n)
+    xx, yy = np.meshgrid(x, y)
+    zz = 3. * (1. - xx) ** 2. * np.exp(-(xx ** 2.) - (yy + 1.) ** 2.) \
+         -10. * (xx / 5. - xx ** 3. - yy ** 5.) * np.exp(-xx ** 2. - yy ** 2.) \
+         -1. / 3. * np.exp(-(xx + 1.) ** 2. - yy ** 2.)
+    return xx, yy, zz
+
 
 def main():
     # parameters
-    nlen = 25
-    minXY, maxXY = -3.0, 3.0
-    delta = (maxXY - minXY)/float(nlen-1)
-    dh = delta/2.
-    nContour = 10
-    el, az = 20., -130.
-    
-    # makegrid
-    X,Y,Z = peaks(nlen)
-    
-    # get val
-    maxval = np.max(Z)
-    minval = np.min(Z)
-    maxi, maxj = np.where(Z == np.max(Z))
-    mini, minj = np.where(Z == np.min(Z))
-    
+    NLEN = 25
+    MIN_XY, MAX_XY = -3.0, 3.0
+    DELTA = (MAX_XY - MIN_XY) / (NLEN - 1)
+    DH = DELTA / 2.
+    NCONTOUR = 10
+    EL, AZ = 20., -130.
+
+    # makegrid and elevation
+    xx, yy, zz = generate_demo_data(NLEN)
+
+    # get max/min values and their locations
+    maxval = np.max(zz)
+    minval = np.min(zz)
+    maxi, maxj = [np.argmax(zz) // NLEN], [np.argmax(zz) % NLEN]
+    mini, minj = [np.argmin(zz) // NLEN], [np.argmin(zz) % NLEN]
+
     # figure 3D
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111, projection='3d')
-    ax1.plot(X[maxi,maxj], Y[maxi,maxj]+dh, maxval,"o", color="#ffff00", ms=10, mec="k", mew=1.0)
-    ax1.plot(X[mini,minj], Y[mini,minj]+dh, minval,"o", color="#00ffff", ms=10, mec="k", mew=1.0)
-    ax1.plot_surface(X,Y,Z, rstride=1, cstride=1, cmap='jet')
-    ax1.view_init(elev=el,azim=az)
-    
+    ax1.plot(xx[maxi, maxj], yy[maxi, maxj] + DH, maxval, "o",
+             color="#ffff00", ms=10, mec="k", mew=1.0)
+    ax1.plot(xx[mini, minj], yy[mini, minj] + DH, minval, "o",
+             color="#00ffff", ms=10, mec="k", mew=1.0)
+    ax1.plot_surface(xx, yy, zz, rstride=1, cstride=1, cmap='jet')
+    ax1.view_init(elev=EL, azim=AZ)
+
     # figure 2D
     fig2 = plt.figure()
     ax2 = fig2.add_subplot(111)
-    CS = plt.contour(X,Y,Z,nContour, cmap='jet')
-    ax2.plot(X[maxi,maxj], Y[maxi,maxj]+dh,"o", mfc="#ffff00", ms=10, mec="k", mew=1.0)
-    ax2.plot(X[mini,minj], Y[mini,minj]+dh,"o", mfc="#00ffff", ms=10, mec="k", mew=1.0)
+    plt.contour(xx, yy, zz, NCONTOUR, cmap='jet')
+    ax2.plot(xx[maxi, maxj], yy[maxi, maxj] + DH, "o",
+             mfc="#ffff00", ms=10, mec="k", mew=1.0)
+    ax2.plot(xx[mini, minj], yy[mini, minj] + DH, "o",
+             mfc="#00ffff", ms=10, mec="k", mew=1.0)
     ax2.axis("image")
+
     # show figures
     plt.show()
+    plt.close()
 
 if __name__ == '__main__':
-    import matplotlib.pyplot as plt
-    from mpl_toolkits.mplot3d import Axes3D
-    #import seaborn as sns
-    main() 
+    main()
