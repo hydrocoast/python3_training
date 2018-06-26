@@ -46,7 +46,7 @@ def drawfig(nt, dt, data1, data2, freq, power):
     ax1.grid(which='major',color=[0.2,0.2,0.2],linestyle='-')
     ax1.set_xlabel('time [s]',fontsize=18)
     ax1.set_ylabel('wind speed [m/s] ',fontsize=18)
-    
+
     # figure2: power spectrum density
     fig2 = plt.figure(figsize=(12,6))
     ax2 = fig2.add_subplot(111)
@@ -56,7 +56,7 @@ def drawfig(nt, dt, data1, data2, freq, power):
     ax2.set_xlabel('Frequency f [Hz]',fontsize=18)
     ax2.set_ylabel('P(f) [$\mathsf{m^2/s^2}$]',fontsize=18)
     ax2.set_ylim(1.0E-5,1.0E+01)
- 
+
 def main(form):
     fdir = "./data"
     if form == 'mat':
