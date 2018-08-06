@@ -33,6 +33,7 @@ def main():
     ax.set_xlabel('year', fontsize=14, fontdict={"name":"serif"})
     ax.set_ylabel('wind speed [m/s]', fontsize=15, fontname='serif')
     ax.legend(['raw data','linear','quadratic'], loc=3)
+    #fig.savefig('regressions.svg',format='svg')
  
 if __name__ == '__main__':
     main()  

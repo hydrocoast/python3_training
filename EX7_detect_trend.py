@@ -84,7 +84,8 @@ def main():
     fig =  plt.figure(figsize=(12,16))
     draw_lines(fig.add_subplot(211), timeinterp, valinterp, valreg)
     draw_PSD(fig.add_subplot(212), freq, PSD)
-    plt.show()
+    #plt.show()
+    fig.savefig('trenddetection.png',format='png')
 
 if __name__ == "__main__":
     main()

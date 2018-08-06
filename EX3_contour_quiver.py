@@ -45,6 +45,7 @@ def main():
     # save figure
     #fig1.savefig('contourf_test.png',format='png',dpi=600)
     #fig1.savefig('contourf_test.eps',format='eps',dpi=600)
+    fig1.savefig('contourf_test.svg',format='svg')
  
 if __name__ == '__main__':
     main()
