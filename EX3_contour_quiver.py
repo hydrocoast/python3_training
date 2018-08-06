@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from peakssurf_1 import peaks
+from EX1_peaks_surf import peaks
 #import seaborn as sns
 
 def setlabels(axes, FS):
