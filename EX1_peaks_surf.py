@@ -8,7 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D
 # import seaborn as sns
 
 
-def generate_demo_data(n=49):
+def peaks(n=49):
     """ 
     input
     -----------------
@@ -34,7 +34,7 @@ def main():
     EL, AZ = 20., -130.
 
     # makegrid and elevation
-    xx, yy, zz = generate_demo_data(NLEN)
+    xx, yy, zz = peaks(NLEN)
 
     # get max/min values and their locations
     maxval = np.max(zz)

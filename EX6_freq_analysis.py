@@ -8,10 +8,10 @@ def load_matfile(matname):
     nt, nz = matdata["nt"], matdata["nz"]
     dt = matdata["dt"]
     z, u = matdata["z"], matdata["u"]
-    return (nt,nz,dt,z,u)
+    return (nt, nz, dt, z, u)
 
 def read_txtfile(txtfilename):
-    with open(txtfilename,'r') as f:
+    with open(txtfilename, 'r') as f:
         header1 = f.readline()
         header2 = f.readline()
         header3 = f.readline()
@@ -19,9 +19,9 @@ def read_txtfile(txtfilename):
     dt = float(header2)
     z = np.array(header3.split())
     u = np.loadtxt(txtfilename, skiprows=3)
-    return (nt,nz,dt,z,u)
+    return (nt, nz, dt, z, u)
 
-def remove_noise(nt,dt,dataorg):
+def remove_noise(nt, dt, dataorg):
     # Fourier tranform
     F0 = fftpack.fft(dataorg)
     freq = fftpack.fftfreq(nt, d=dt)

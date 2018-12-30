@@ -1,7 +1,10 @@
 import cv2
 import numpy as np
 
-def shrink(img):
+def img_reduction(img):
+    """ 
+    Resize an image
+    """
     h, w = img.shape[:2]
     #print h, w
     while h >= 1024 or w>= 1024:
@@ -42,7 +45,7 @@ def padding_position(x, y, w, h, p):
 def main():
     ## read an image
     imgorg = cv2.imread('data/hydrangea.jpg')
-    imgorg = shrink(imgorg)
+    imgorg = img_reduction(imgorg)
     
     ## masking
     masked = mask_white(cv2.GaussianBlur(imgorg, (9, 9), 0), [25, 0, 0], [95, 255, 255])
