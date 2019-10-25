@@ -11,4 +11,6 @@ pic/
 __*__/
 .ipynb*/
 wspd.mon.mean.nc
+*.png
+*.jpg
 !hydrangea.jpg
